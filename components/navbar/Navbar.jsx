@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Navlink } from "./navLink";
 import { PrimaryButton } from "../button/PrimaryButton";
 import { useEffect, useState } from "react";
-
+import Image from "next/image";
 export const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
 
@@ -47,8 +47,17 @@ export const Navbar = () => {
             </label>
           </div>
 
-          <div className="flex-1 text-xl font-bold text-primary-orange">
-            LokalBite
+          <div className="flex-1 items-center gap-2 text-xl font-bold text-primary-orange">
+            <Image
+              src="/images/logo.png"
+              width={30}
+              height={30}
+              alt="logo"
+              objectPosition="top"
+              objectFit="cover"
+              className="hidden md:flex"
+            />
+            <p>LokalBite</p>
           </div>
 
           <div className="hidden gap-10 md:flex">
