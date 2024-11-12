@@ -4,15 +4,15 @@ import Link from "next/link";
 
 export const Dish = () => {
   return (
-    <main className="realtive flex min-h-screen items-center bg-[#f7f7f9] px-8 md:px-20">
+    <main className="relative flex min-h-screen items-center bg-[#f7f7f9] px-8 md:px-28">
       <Image
-        src="/images/topleaves.png"
-        width={30}
-        height={30}
+        src="/images/garlic.png"
+        width={80}
+        height={80}
         objectFit="cover"
         objectPosition="top"
         alt=""
-        className="absolute left-8 top-10 z-10"
+        className="absolute right-4 top-32 z-10 w-[150] md:right-10 md:top-24"
       />
 
       <section className="grid w-full grid-cols-1 gap-10 py-20 md:gap-20 md:py-0">

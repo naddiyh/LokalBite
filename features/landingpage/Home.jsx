@@ -1,11 +1,12 @@
 import { PrimaryButton } from "@/components/button/PrimaryButton";
 import Image from "next/image";
 import { Dish } from "./Dish";
+import { Chef } from "./Chef";
 
 export const LandingPage = () => {
   return (
     <main className="flex flex-col">
-      <section className="relative flex min-h-screen w-screen items-center px-8 py-24 md:px-20">
+      <section className="relative flex min-h-screen w-screen items-center px-8 py-24 md:px-28">
         <Image
           src="/images/bg.png"
           alt="background"
@@ -47,6 +48,7 @@ export const LandingPage = () => {
         </section>
       </section>
       <Dish />
+      <Chef />
     </main>
   );
 };
