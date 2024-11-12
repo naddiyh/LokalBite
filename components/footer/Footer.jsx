@@ -3,7 +3,7 @@ import { Navlink } from "../navbar/navLink";
 import Link from "next/link";
 export const Footer = () => {
   return (
-    <footer className="footer bg-base-200 text-base-content bottom-0 px-8 py-10 md:px-20">
+    <footer className="footer bottom-0 bg-base-200 px-8 py-10 text-base-content md:px-28">
       <aside>
         <Image
           src="/images/logo.png"
@@ -23,7 +23,7 @@ export const Footer = () => {
         {Navlink.map((item) => (
           <Link key={item.href} href={item.href}>
             {
-              <li className="link link-hover inline-flex hover:text-primary-soft-orange">
+              <li className="link-hover link inline-flex hover:text-primary-soft-orange">
                 {item.title}
               </li>
             }
@@ -32,9 +32,9 @@ export const Footer = () => {
       </nav>
       <nav>
         <h6 className="footer-title">Legal</h6>
-        <a className="link link-hover">Terms of use</a>
-        <a className="link link-hover">Privacy policy</a>
-        <a className="link link-hover">Cookie policy</a>
+        <a className="link-hover link">Terms of use</a>
+        <a className="link-hover link">Privacy policy</a>
+        <a className="link-hover link">Cookie policy</a>
       </nav>
     </footer>
   );
