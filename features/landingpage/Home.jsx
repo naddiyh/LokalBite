@@ -29,10 +29,10 @@ export const LandingPage = () => {
             </div>
             <div className="flex flex-col gap-4 md:flex-row">
               <PrimaryButton fullWidth={false} color={false} hover={false}>
-                Find more
+                View Menu
               </PrimaryButton>
               <PrimaryButton fullWidth={false} color={true} hover={true}>
-                Book a table
+                Order Food
               </PrimaryButton>
             </div>
           </div>
