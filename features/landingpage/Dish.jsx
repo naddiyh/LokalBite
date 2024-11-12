@@ -20,7 +20,7 @@ export const Dish = () => {
           <h2 className="text-heading-s font-semibold text-black md:text-heading-l">
             Our Delicious Menu
           </h2>
-          <p className="text-text-m font-light text-black md:text-heading-s">
+          <p className="text-text-m font-light text-black md:text-text-l">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab
             sapiente sint, modi quaerat quos consequuntur.
           </p>

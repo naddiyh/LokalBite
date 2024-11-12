@@ -17,7 +17,7 @@ export const Chef = () => {
           <h2 className="text-heading-s font-semibold text-black md:pt-20 md:text-heading-l">
             Our Expects Chef
           </h2>
-          <p className="text-text-m font-light text-black">
+          <p className="text-text-m font-light text-black md:text-text-l">
             Food, subs tance consisting essentially of protein, carbohydrate,
             fat, and other nutrients used in the body of an organism to sustain
             growth and vital processes and to furnish energy. The absorption and
