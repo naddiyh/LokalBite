@@ -19,6 +19,7 @@ export const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   const handleLogin = () => {
     router.push("/login");
   };
@@ -94,9 +95,19 @@ export const Navbar = () => {
         <ul className="menu min-h-full w-60 bg-base-200 pt-14">
           {Navlink.map((item) => (
             <Link key={item.href} href={item.href} className="p-4">
-              {<li className="inline-flex pl-4 text-white">{item.title}</li>}
+              {<li className="inline-flex pl-3 text-white">{item.title}</li>}
             </Link>
           ))}
+          <div className="pl-6 pt-2">
+            <PrimaryButton
+              fullWidth={false}
+              color={false}
+              hover={false}
+              onClick={handleLogin}
+            >
+              Login
+            </PrimaryButton>
+          </div>
         </ul>
       </div>
     </div>
