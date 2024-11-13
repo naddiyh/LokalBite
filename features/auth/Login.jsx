@@ -1,19 +1,19 @@
-// from aiy-branch
-"use client"; // This marks the component as a Client Component
+
+"use client"; 
 
 import Image from "next/image";
 import GoogleIcon from "next/image";
 import { useState } from "react";
-import { loginWithEmailPassword, loginWithGoogle } from "../../features/auth/useAuth"; // Import auth functions
+import { loginWithEmailPassword, loginWithGoogle } from "../../features/auth/useAuth"; 
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); // State to handle error messages
+  const [error, setError] = useState(""); 
 
-  // Handle email/password login
+
   const handleLogin = async () => {
-    setError(""); // Clear any previous error messages
+    setError("");
     try {
       const userCredential = await loginWithEmailPassword(email, password);
       console.log("Logged in:", userCredential.user);
@@ -35,7 +35,7 @@ export const Login = () => {
 
   // Handle Google sign-in
   const handleGoogleSignIn = async () => {
-    setError(""); // Clear any previous error messages
+    setError("");
     try {
       const userCredential = await loginWithGoogle();
       console.log("Google sign-in:", userCredential.user);

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Navlink } from "./navLink";
 import { PrimaryButton } from "../button/PrimaryButton";
 import { useEffect, useState } from "react";
-
+import Image from "next/image";
 export const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
 
@@ -23,7 +23,7 @@ export const Navbar = () => {
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         <div
-          className={` ${isScroll ? "bg-white bg-opacity-50 text-primary-orange shadow-sm hover:text-primary-soft-orange" : "text-white"} navbar fixed left-0 right-0 top-0 w-full gap-2 px-8 py-6 md:px-20`}
+          className={` ${isScroll ? "bg-white bg-opacity-70 text-primary-orange shadow-sm hover:text-primary-soft-orange" : "text-white"} navbar fixed left-0 right-0 top-0 w-full gap-2 px-8 py-6 md:px-28`}
         >
           <div className="flex-none lg:hidden">
             <label
@@ -47,8 +47,17 @@ export const Navbar = () => {
             </label>
           </div>
 
-          <div className="flex-1 text-xl font-bold text-primary-orange">
-            LokalBite
+          <div className="flex-1 items-center gap-2 text-xl font-bold text-primary-orange">
+            <Image
+              src="/images/logo.png"
+              width={30}
+              height={30}
+              alt="logo"
+              objectPosition="top"
+              objectFit="cover"
+              className="hidden md:flex"
+            />
+            <p>LokalBite</p>
           </div>
 
           <div className="hidden gap-10 md:flex">
@@ -73,7 +82,7 @@ export const Navbar = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu bg-base-200 min-h-full w-60 pt-14">
+        <ul className="menu min-h-full w-60 bg-base-200 pt-14">
           {Navlink.map((item) => (
             <Link key={item.href} href={item.href} className="p-4">
               {<li className="inline-flex pl-4 text-white">{item.title}</li>}
