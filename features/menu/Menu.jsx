@@ -11,7 +11,7 @@ const menuItems = [
   {
     id: 2,
     title: "Sop Konro",
-    description: "Iga sapi empuk dalam kuah kental berwarna hitam dari kluwek dan rempah.",
+    description: "Iga sapi empuk dengan kuah kental berwarna hitam dari kluwek dan rempah.",
     price: "Rp25.000",
     image: "/images/salad.png",
   },
