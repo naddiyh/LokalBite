@@ -4,7 +4,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
-import Cookies from "js-cookie";
+
 import { toast } from "react-toastify";
 
 /**
@@ -21,7 +21,6 @@ export const loginWithEmailPassword = async (email, password) => {
       password,
     );
     toast.success("Selamat Anda Berhasil Login");
-
     return userCredential;
   } catch (error) {
     throw error;
@@ -44,7 +43,6 @@ export const registerWithEmailPassword = async (email, password) => {
     toast.success("Selamat anda berhasil login");
     return userCredential;
   } catch (error) {
-    toast.error("Email or password is incorrect");
     throw error;
   }
 };

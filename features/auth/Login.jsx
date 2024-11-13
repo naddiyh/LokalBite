@@ -15,6 +15,7 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
+
   const handleLogin = async () => {
     setError("");
     try {
@@ -23,15 +24,13 @@ export const Login = () => {
       router.push("/");
     } catch (error) {
       if (error.code === "auth/invalid-credential") {
-        toast.error(
-          "Invalid credentials. Please check your email and password.",
-        );
+        setError("Invalid credentials. Please check your email and password.");
       } else if (error.code === "auth/user-not-found") {
-        toast.error("No account found with this email.");
+        setError("No account found with this email.");
       } else if (error.code === "auth/wrong-password") {
-        toast.errorr("Incorrect password. Please try again.");
+        setError("Incorrect password. Please try again.");
       } else if (error.code === "auth/too-many-requests") {
-        toast.error(
+        setError(
           "Too many unsuccessful login attempts. Please try again later.",
         );
       } else {
@@ -57,10 +56,10 @@ export const Login = () => {
     <div className="flex h-screen w-full flex-col items-center md:flex-row md:items-start">
       <div className="relative hidden h-1/3 w-full flex-col md:flex md:h-full md:w-1/2">
         <div className="absolute left-[5%] top-[10%] flex flex-col md:left-[10%] md:top-[20%]">
-          <h1 className="z-10 my-4 text-2xl font-bold text-white md:text-4xl">
+          <h1 className="z-10 my-4 pl-10 text-2xl font-bold text-white md:text-4xl">
             Indonesia Culinary
           </h1>
-          <p className="z-10 text-lg font-normal text-white md:text-xl">
+          <p className="z-10 pl-10 text-lg font-normal text-white md:text-xl">
             Get your Bali belly here
           </p>
         </div>
@@ -69,7 +68,7 @@ export const Login = () => {
           width={100}
           height={100}
           alt="Cover"
-          className="h-full w-full object-cover brightness-75"
+          className="h-full w-full object-cover brightness-50"
         />
       </div>
 
@@ -90,24 +89,24 @@ export const Login = () => {
           {/* Error message display */}
           {error && <p className="mb-4 text-sm text-red-500">{error}</p>}
 
-          <div className="flex w-full flex-col">
+          <div className="flex w-full flex-col gap-4">
             <input
               type="text"
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="my-2 w-full border-b border-black py-2 text-black outline-none focus:outline-none"
+              className="w-full rounded-md border-b bg-transparent py-2 pl-3 outline-none focus:outline-none"
             />
             <input
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="my-2 w-full border-b border-black py-2 text-black outline-none focus:outline-none"
+              className="w-full rounded-md border-b py-2 pl-3 outline-none focus:outline-none"
             />
           </div>
 
-          <div className="flex w-full items-center justify-between">
+          <div className="flex w-full items-center justify-between pt-4">
             <div className="flex items-center">
               <input type="checkbox" className="mr-2 h-4 w-4" />
               <p className="text-sm">Remember Me</p>
@@ -124,7 +123,7 @@ export const Login = () => {
             <button
               type="submit"
               onClick={handleLogin}
-              className="my-2 flex w-full cursor-pointer items-center justify-center rounded-md bg-[#060606] p-4 text-center text-white"
+              className="my-2 flex w-full cursor-pointer items-center justify-center rounded-md bg-primary-orange p-4 text-center text-white"
             >
               Log in
             </button>
