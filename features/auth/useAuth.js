@@ -20,7 +20,6 @@ export const loginWithEmailPassword = async (email, password) => {
       email,
       password,
     );
-    toast.success("Selamat Anda Berhasil Login");
     return userCredential;
   } catch (error) {
     throw error;
@@ -40,7 +39,6 @@ export const registerWithEmailPassword = async (email, password) => {
       email,
       password,
     );
-    toast.success("Selamat anda berhasil login");
     return userCredential;
   } catch (error) {
     throw error;

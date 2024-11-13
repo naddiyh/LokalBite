@@ -46,6 +46,7 @@ export const Login = () => {
       const userCredential = await loginWithGoogle();
       console.log("Google sign-in:", userCredential.user);
       router.push("/");
+      toast.success("Akun berhasil masuk");
     } catch (error) {
       setError("Failed to sign in with Google. Please try again.");
       console.error("Google sign-in error:", error.message);
@@ -102,7 +103,7 @@ export const Login = () => {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-md border-b py-2 pl-3 outline-none focus:outline-none"
+              className="w-full rounded-md border-b bg-transparent py-2 pl-3 outline-none focus:outline-none"
             />
           </div>
 
