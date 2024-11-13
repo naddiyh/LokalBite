@@ -1,4 +1,4 @@
-// from aiy-brunch
+// from aiy-branch
 "use client"; // This marks the component as a Client Component
 
 import Image from "next/image";
