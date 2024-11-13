@@ -6,9 +6,11 @@ import { PrimaryButton } from "../button/PrimaryButton";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+
 export const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
   const router = useRouter();
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -23,12 +25,20 @@ export const Navbar = () => {
   const handleLogin = () => {
     router.push("/login");
   };
+
+  const handleSignup = () => {
+    router.push("/signup");
+  };
+
   return (
     <div className="drawer z-20">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         <div
-          className={` ${isScroll ? "bg-white bg-opacity-70 text-primary-orange shadow-sm hover:text-primary-soft-orange" : "text-white"} navbar fixed left-0 right-0 top-0 w-full gap-2 px-8 py-6 md:px-28`}
+          className={`${isScroll
+            ? "bg-white bg-opacity-70 text-primary-orange shadow-sm hover:text-primary-soft-orange"
+            : "text-white"
+            } navbar fixed left-0 right-0 top-0 w-full gap-2 px-8 py-6 md:px-28`}
         >
           <div className="flex-none lg:hidden">
             <label
@@ -68,11 +78,9 @@ export const Navbar = () => {
           <div className="hidden gap-10 md:flex">
             {Navlink.map((item) => (
               <Link key={item.href} href={item.href}>
-                {
-                  <li className="inline-flex hover:text-primary-soft-orange">
-                    {item.title}
-                  </li>
-                }
+                <li className="inline-flex hover:text-primary-soft-orange">
+                  {item.title}
+                </li>
               </Link>
             ))}
             <PrimaryButton
@@ -82,6 +90,14 @@ export const Navbar = () => {
               onClick={handleLogin}
             >
               Login
+            </PrimaryButton>
+            <PrimaryButton
+              fullWidth={false}
+              color={true}  // Set to true for a distinctive sign-up button style
+              hover={true}  // Set hover to true for sign-up button hover effect
+              onClick={handleSignup}
+            >
+              Sign Up
             </PrimaryButton>
           </div>
         </div>
@@ -95,7 +111,7 @@ export const Navbar = () => {
         <ul className="menu min-h-full w-60 bg-base-200 pt-14">
           {Navlink.map((item) => (
             <Link key={item.href} href={item.href} className="p-4">
-              {<li className="inline-flex pl-3 text-white">{item.title}</li>}
+              <li className="inline-flex pl-3 text-white">{item.title}</li>
             </Link>
           ))}
           <div className="pl-6 pt-2">
@@ -106,6 +122,15 @@ export const Navbar = () => {
               onClick={handleLogin}
             >
               Login
+            </PrimaryButton>
+            <PrimaryButton
+              fullWidth={false}
+              color={true}  // Styled as primary for sign-up
+              hover={true}
+              onClick={handleSignup}
+              className="mt-2"
+            >
+              Sign Up
             </PrimaryButton>
           </div>
         </ul>
