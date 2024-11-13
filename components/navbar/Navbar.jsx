@@ -6,29 +6,33 @@ import { PrimaryButton } from "../button/PrimaryButton";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/features/auth/useAuth";
+
 export const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
   const router = useRouter();
+  const { user, handleSignOut } = useAuth(); // Access handleSignOut here
+
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScroll(scrollPosition > 800);
+      setIsScroll(window.scrollY > 800);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLogin = () => {
-    router.push("/login");
-  };
+  const handleLogin = () => router.push("/login");
+
   return (
     <div className="drawer z-20">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         <div
-          className={` ${isScroll ? "bg-white bg-opacity-70 text-primary-orange shadow-sm hover:text-primary-soft-orange" : "text-white"} navbar fixed left-0 right-0 top-0 w-full gap-2 px-8 py-6 md:px-28`}
+          className={`${
+            isScroll
+              ? "bg-white bg-opacity-70 text-primary-orange shadow-sm hover:text-primary-soft-orange"
+              : "text-white"
+          } navbar fixed left-0 right-0 top-0 w-full gap-2 px-8 py-6 md:px-28`}
         >
           <div className="flex-none lg:hidden">
             <label
@@ -68,21 +72,31 @@ export const Navbar = () => {
           <div className="hidden gap-10 md:flex">
             {Navlink.map((item) => (
               <Link key={item.href} href={item.href}>
-                {
-                  <li className="inline-flex hover:text-primary-soft-orange">
-                    {item.title}
-                  </li>
-                }
+                <li className="inline-flex hover:text-primary-soft-orange">
+                  {item.title}
+                </li>
               </Link>
             ))}
-            <PrimaryButton
-              fullWidth={false}
-              color={false}
-              hover={false}
-              onClick={handleLogin}
-            >
-              Login
-            </PrimaryButton>
+
+            <div className="flex">
+              {user ? (
+                <div className="flex items-center gap-4">
+                  <Image
+                    src="/"
+                    alt="Profile"
+                    className="rounded-full"
+                    width={40}
+                    height={40}
+                  />
+
+                  <PrimaryButton onClick={handleSignOut}>
+                    Sign Out
+                  </PrimaryButton>
+                </div>
+              ) : (
+                <PrimaryButton onClick={handleLogin}>Login</PrimaryButton>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -95,7 +109,7 @@ export const Navbar = () => {
         <ul className="menu min-h-full w-60 bg-base-200 pt-14">
           {Navlink.map((item) => (
             <Link key={item.href} href={item.href} className="p-4">
-              {<li className="inline-flex pl-3 text-white">{item.title}</li>}
+              <li className="inline-flex pl-3 text-white">{item.title}</li>
             </Link>
           ))}
           <div className="pl-6 pt-2">
@@ -103,9 +117,9 @@ export const Navbar = () => {
               fullWidth={false}
               color={false}
               hover={false}
-              onClick={handleLogin}
+              onClick={user ? handleSignOut : handleLogin}
             >
-              Login
+              {user ? "Sign Out" : "Login"}
             </PrimaryButton>
           </div>
         </ul>

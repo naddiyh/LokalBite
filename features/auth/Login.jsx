@@ -3,21 +3,20 @@
 import Image from "next/image";
 import GoogleIcon from "next/image";
 import { useState } from "react";
-import {
-  loginWithEmailPassword,
-  loginWithGoogle,
-} from "@/features/auth/useAuth";
+
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { toast } from "react-toastify";
+import { useAuth } from "./useAuth";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
 
+  const { loginWithEmailPassword, loginWithGoogle } = useAuth();
+
   const handleLogin = async () => {
-    setError("");
     try {
       const userCredential = await loginWithEmailPassword(email, password);
       console.log("Logged in:", userCredential.user);
@@ -41,7 +40,6 @@ export const Login = () => {
   };
 
   const handleGoogleSignIn = async () => {
-    setError("");
     try {
       const userCredential = await loginWithGoogle();
       console.log("Google sign-in:", userCredential.user);
@@ -128,9 +126,9 @@ export const Login = () => {
             >
               Log in
             </button>
-            <button className="my-2 flex w-full cursor-pointer items-center justify-center rounded-md border border-black bg-white p-4 text-center text-[#060606]">
+            {/* <button className="my-2 flex w-full cursor-pointer items-center justify-center rounded-md border border-black bg-white p-4 text-center text-[#060606]">
               Register
-            </button>
+            </button> */}
           </div>
 
           <div className="relative flex w-full items-center justify-center py-2">

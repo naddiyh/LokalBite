@@ -1,9 +1,11 @@
+"use client";
 import { PrimaryButton } from "@/components/button/PrimaryButton";
 import Image from "next/image";
 import { Dish } from "./Dish";
 import { Chef } from "./Chef";
-
+import { useAuth } from "../auth/useAuth";
 export const LandingPage = () => {
+  const { user } = useAuth();
   return (
     <main className="flex flex-col">
       <section className="relative flex min-h-screen w-screen items-center px-8 py-24 md:px-28">
@@ -17,7 +19,13 @@ export const LandingPage = () => {
         />
         <section className="z-10 flex flex-col-reverse items-center gap-8 md:flex-row">
           <div className="flex flex-col gap-10">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
+              {user && (
+                <h2 className="font-semibols text-heading-m text-black md:text-heading-xl">
+                  Welcome, {user.displayName}
+                </h2>
+              )}
+
               <h2 className="text-heading-m font-bold text-black md:w-3/4 md:text-heading-xl">
                 We Provide The Best Food For You!
               </h2>
