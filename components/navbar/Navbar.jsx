@@ -5,9 +5,10 @@ import { Navlink } from "./navLink";
 import { PrimaryButton } from "../button/PrimaryButton";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 export const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
-
+  const router = useRouter();
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -18,6 +19,9 @@ export const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const handleLogin = () => {
+    router.push("/login");
+  };
   return (
     <div className="drawer z-20">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -70,7 +74,12 @@ export const Navbar = () => {
                 }
               </Link>
             ))}
-            <PrimaryButton fullWidth={false} color={false} hover={false}>
+            <PrimaryButton
+              fullWidth={false}
+              color={false}
+              hover={false}
+              onClick={handleLogin}
+            >
               Login
             </PrimaryButton>
           </div>

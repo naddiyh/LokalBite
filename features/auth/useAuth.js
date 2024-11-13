@@ -1,19 +1,27 @@
-import { auth, provider } from "../../config/firebase";
+import { auth, provider } from "@/config/firebase";
 import {
   signInWithPopup,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
+import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 /**
- * Function to log in with email and password
+
  * @param {string} email 
  * @param {string} password 
- * @returns {Promise} Firebase user credentials or error
+ * @returns {Promise} 
  */
 export const loginWithEmailPassword = async (email, password) => {
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password,
+    );
+    toast.success("Selamat Anda Berhasil Login");
+
     return userCredential;
   } catch (error) {
     throw error;
@@ -22,15 +30,21 @@ export const loginWithEmailPassword = async (email, password) => {
 
 /**
  * Function to register with email and password
- * @param {string} email 
- * @param {string} password 
+ * @param {string} email
+ * @param {string} password
  * @returns {Promise} Firebase user credentials or error
  */
 export const registerWithEmailPassword = async (email, password) => {
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password,
+    );
+    toast.success("Selamat anda berhasil login");
     return userCredential;
   } catch (error) {
+    toast.error("Email or password is incorrect");
     throw error;
   }
 };

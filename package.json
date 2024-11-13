@@ -10,12 +10,14 @@
   },
   "dependencies": {
     "firebase": "^11.0.1",
+    "js-cookie": "^3.0.5",
     "lint-staged": "^15.2.10",
     "next": "15.0.3",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
     "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react-toastify": "^10.0.6"
   },
   "devDependencies": {
     "daisyui": "^4.12.14",
