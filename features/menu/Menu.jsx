@@ -1,19 +1,17 @@
-// app/menu/page.jsx
 import Image from "next/image";
 import { PrimaryButton } from "@/components/button/PrimaryButton";
 
 const menuItems = [
   {
     id: 1,
-    title: "Nasi Goreng",
-    description: "Nasi goreng khas dengan campuran ayam, telur, dan sayuran segar.",
-    price: "Rp20.000",
+    title: "Coto Makassar",
+    description: "Potongan daging sapi empuk dimasak dalam kuah kacang dengan bumbu tradisional.",
     image: "/images/salad.png",
   },
   {
     id: 2,
-    title: "Ayam Bakar",
-    description: "Ayam bakar bumbu khas dengan sambal pedas.",
+    title: "Sop Konro",
+    description: "Iga sapi empuk dalam kuah kental berwarna hitam dari kluwek dan rempah.",
     price: "Rp25.000",
     image: "/images/salad.png",
   },
