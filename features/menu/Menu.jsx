@@ -102,15 +102,15 @@ export const Menu = () => {
           {menuItems.map((item) => (
             <div
               key={item.id}
-              className="relative flex flex-col items-center overflow-hidden rounded-lg bg-white shadow-lg"
+              className="relative flex transform flex-col items-center overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
             >
               <Image
                 src="/images/salad.png"
                 alt="About Us"
                 objectFit="cover"
                 className="rounded-lg"
-                width={300}
-                height={300}
+                width={250}
+                height={250}
               />
               <div className="flex flex-col items-center gap-4 p-6 text-center">
                 <h2 className="text-xl font-semibold text-black">
