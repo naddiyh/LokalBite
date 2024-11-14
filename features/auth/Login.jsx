@@ -44,7 +44,6 @@ export const Login = () => {
       const userCredential = await loginWithGoogle();
       console.log("Google sign-in:", userCredential.user);
       router.push("/");
-      toast.success("Akun berhasil masuk");
     } catch (error) {
       setError("Failed to sign in with Google. Please try again.");
       console.error("Google sign-in error:", error.message);
