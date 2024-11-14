@@ -100,12 +100,12 @@ export const Navbar = () => {
                       tabIndex={0}
                       className="menu dropdown-content menu-sm z-[1] mt-16 w-48 gap-3 rounded-box bg-base-100 px-3 py-4 shadow"
                     >
-                      <Link href="/" className="justify-between">
+                      <Link href="/" className="justify-between text-white">
                         Profile
                       </Link>
 
                       <button
-                        className="border-none text-start"
+                        className="border-none text-start text-white"
                         onClick={handleSignOut}
                       >
                         Sign Out
