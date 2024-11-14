@@ -1,5 +1,5 @@
 "use client";
-import { FaUserCircle } from "react-icons/fa";
+
 import Link from "next/link";
 import { Navlink } from "./navLink";
 import { PrimaryButton } from "../button/PrimaryButton";
