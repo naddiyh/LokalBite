@@ -32,9 +32,15 @@ export const Footer = () => {
       </nav>
       <nav>
         <h6 className="footer-title">Legal</h6>
-        <a className="link-hover link">Terms of use</a>
-        <a className="link-hover link">Privacy policy</a>
-        <a className="link-hover link">Cookie policy</a>
+        <Link href="/" className="link-hover link">
+          Terms of use
+        </Link>
+        <Link href="/" className="link-hover link">
+          Privacy policy
+        </Link>
+        <Link href="/" className="link-hover link">
+          Cookie policy
+        </Link>
       </nav>
     </footer>
   );

@@ -32,7 +32,7 @@ export const Navbar = () => {
             className={`${
               isScroll
                 ? "bg-white bg-opacity-70 text-primary-orange shadow-sm hover:text-primary-soft-orange"
-                : "text-white"
+                : "text-black"
             } navbar fixed left-0 right-0 top-0 w-full gap-2 px-8 py-4 md:px-28`}
           >
             <div className="flex-none lg:hidden">

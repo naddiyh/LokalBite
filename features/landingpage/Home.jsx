@@ -4,7 +4,17 @@ import Image from "next/image";
 import { Dish } from "./Dish";
 import { Chef } from "./Chef";
 import { useAuth } from "../auth/useAuth";
+import { useRouter } from "next/navigation";
 export const LandingPage = () => {
+  const router = useRouter();
+
+  const handleMenu = () => {
+    router.push("/menu");
+  };
+
+  const handleOrder = () => {
+    router.push("/reservasi");
+  };
   const { user } = useAuth();
   return (
     <main className="flex flex-col">
@@ -36,10 +46,20 @@ export const LandingPage = () => {
               </p>
             </div>
             <div className="flex flex-col gap-4 md:flex-row">
-              <PrimaryButton fullWidth={false} color={false} hover={false}>
+              <PrimaryButton
+                fullWidth={false}
+                color={false}
+                hover={false}
+                onClick={handleMenu}
+              >
                 View Menu
               </PrimaryButton>
-              <PrimaryButton fullWidth={false} color={true} hover={true}>
+              <PrimaryButton
+                fullWidth={false}
+                color={true}
+                hover={true}
+                onClick={handleOrder}
+              >
                 Order Food
               </PrimaryButton>
             </div>
